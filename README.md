@@ -1,6 +1,6 @@
 # AWS_Scripts: Consists of AWS python scripts.
 
-S3-PresignedURL generator data signature is as follows:
+S3-PresignedURL generator data signature is as follows:\n
 {
     "bucket_name": "<your-bucket-name>",
     "file_key": "<file-name>",
