@@ -11,11 +11,7 @@ def lambda_handler(event, context):
     try:
         s3 = boto3.client("s3")
     except Exception as e:
-        return{
-                'statusCode': 400,
-                'body': json.dumps('Error in s3 client creation'),
-                'message': e
-            }
+        print("Error during s3 client creation: {}".format(e))
     
     try:
         print("Event : {}".format(event))
@@ -28,15 +24,5 @@ def lambda_handler(event, context):
         fileContent = fileObj['Body'].read().decode('utf-8')
         print(fileContent)
         
-        return {
-            'statusCode': 200,
-            'body': json.dumps('Hello from Lambda!')
-        }
-        
     except Exception as e:
-        return {
-                'statusCode': 400,
-                'body': json.dumps('Error in execution of module'),
-                'message': e
-                }
-        
+        print("Error during module execution: {}".format(e))
